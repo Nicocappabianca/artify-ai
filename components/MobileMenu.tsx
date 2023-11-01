@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Modal, MobileNav } from "@/components";
+import { Modal, Navbar } from "@/components";
 import { MenuIcon } from "@/components/icons";
 
 const MobileMenu = () => {
@@ -12,7 +12,7 @@ const MobileMenu = () => {
         <MenuIcon />
       </button>
       <Modal isOpen={isMenuOpen} closeModal={() => setIsMenuOpen(false)} position="right">
-        <MobileNav />
+        <Navbar isMobile />
       </Modal>
     </div>
   );
