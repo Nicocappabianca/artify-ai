@@ -3,3 +3,4 @@ export { default as Modal } from "./Modal";
 export { default as DesktopNavbar } from "./DesktopNavbar";
 export { default as MobileMenu } from "./MobileMenu";
 export { default as MobileNav } from "./MobileNav";
+export { default as SignInButton } from "./SignInButton";

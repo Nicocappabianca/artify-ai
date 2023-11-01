@@ -1,3 +1,4 @@
+"use client";
 export default function Home() {
-  return <main></main>;
+  return <section></section>;
 }
