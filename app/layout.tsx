@@ -5,11 +5,7 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Artify AI",
-  description:
-    "Unleash Your Creativity with AI-Powered Artistry. Create, Share, and Inspire with Stunning Images.",
-};
+
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
