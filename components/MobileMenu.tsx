@@ -12,7 +12,7 @@ const MobileMenu = () => {
         <MenuIcon />
       </button>
       <Modal isOpen={isMenuOpen} closeModal={() => setIsMenuOpen(false)} position="right">
-        <Navbar isMobile />
+        <Navbar isMobile closeMenu={() => setIsMenuOpen(false)} />
       </Modal>
     </div>
   );
