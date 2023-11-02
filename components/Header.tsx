@@ -1,11 +1,10 @@
 "use client";
 import Link from "next/link";
 import { Navbar, MobileMenu, SignInButton } from "@/components";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { Auth } from "@/utils/firebase-config";
 
 const Header = () => {
-  const [user] = useAuthState(Auth);
+  // TO DO: implement this with next auth
+  const user = false;
 
   return (
     <header className="fixed w-full top-0">

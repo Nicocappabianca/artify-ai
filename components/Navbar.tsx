@@ -1,6 +1,4 @@
 import { FC } from "react";
-import { Auth } from "@/utils/firebase-config";
-import { signOut } from "firebase/auth";
 import Link from "next/link";
 
 interface NavbarProps {
@@ -19,10 +17,6 @@ enum NAV_LINK {
 }
 
 const Navbar: FC<NavbarProps> = ({ isMobile, closeMenu }) => {
-  const logout = async () => {
-    await signOut(Auth);
-  };
-
   return (
     <nav>
       <ul className={navbarClassNames[isMobile ? "mobile" : "desktop"]}>
@@ -37,7 +31,7 @@ const Navbar: FC<NavbarProps> = ({ isMobile, closeMenu }) => {
           </Link>
         </li>
         <li className="text-red-500 hover:text-red-400">
-          <button onClick={logout}>Sign Out</button>
+          <button>Sign Out</button>
         </li>
       </ul>
     </nav>
