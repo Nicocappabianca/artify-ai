@@ -1,5 +1,7 @@
+"use client";
 import { FC } from "react";
 import Link from "next/link";
+import { signOut } from "next-auth/react";
 
 interface NavbarProps {
   isMobile?: boolean;
@@ -31,7 +33,7 @@ const Navbar: FC<NavbarProps> = ({ isMobile, closeMenu }) => {
           </Link>
         </li>
         <li className="text-red-500 hover:text-red-400">
-          <button>Sign Out</button>
+          <button onClick={() => signOut()}>Sign Out</button>
         </li>
       </ul>
     </nav>

@@ -12,4 +12,8 @@ export const authOptions = {
 
 export const handler = NextAuth(authOptions);
 
+export enum AuthProviders {
+  GOOGLE = "google",
+}
+
 export { handler as GET, handler as POST };

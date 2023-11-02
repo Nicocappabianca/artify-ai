@@ -1,18 +1,21 @@
-import type { Metadata } from "next";
 import { Header } from "@/components";
+import { getServerSession } from "next-auth";
+import { SessionProvider } from "@/components/providers";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const session = await getServerSession();
 
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={`${inter.className} bg-slate-900 text-slate-400`}>
         <Header />
-        <main className="container mx-auto pt-16 px-5 md:px-0 ">{children}</main>
+        <SessionProvider session={session}>
+          <main className="container mx-auto pt-16 px-5 md:px-0 ">{children}</main>
+        </SessionProvider>
       </body>
     </html>
   );

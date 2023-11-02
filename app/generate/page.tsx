@@ -1,5 +1,7 @@
 import { getPageTitle } from "@/utils/metadata-functions";
 import { Metadata } from "next";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
   title: getPageTitle("Generate"),
@@ -7,10 +9,18 @@ export const metadata: Metadata = {
     "Unleash Your Creativity with AI-Powered Artistry. Create, Share, and Inspire with Stunning Images.",
 };
 
-export default function Home() {
+export default async function Home() {
+  const session = await getServerSession();
+
+  if (!session?.user) {
+    redirect("/");
+  }
+
   return (
     <section className="pt-8 sm:pt-12 text-center">
-      <h1 className="text-lg sm:text-3xl font-bold">🖌️ Prompt Your Creativity with Artify 🎨 </h1>
+      <h1 className="text-lg text-white sm:text-3xl font-bold">
+        🖌️ Prompt Your Creativity with Artify 🎨
+      </h1>
       <p className="pt-3 text-md sm:text-lg max-w-xs sm:max-w-none mx-auto">
         Unleash Your Imagination and Create Art with AI-Powered Generation
       </p>

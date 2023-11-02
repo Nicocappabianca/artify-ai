@@ -1,10 +1,9 @@
-"use client";
 import Link from "next/link";
 import { Navbar, MobileMenu, SignInButton } from "@/components";
+import { getServerSession } from "next-auth";
 
-const Header = () => {
-  // TO DO: implement this with next auth
-  const user = false;
+const Header = async () => {
+  const session = await getServerSession();
 
   return (
     <header className="fixed w-full top-0">
@@ -12,7 +11,7 @@ const Header = () => {
         <Link href="/" className="font-bold text-xl">
           Artify
         </Link>
-        {!user ? (
+        {!session?.user ? (
           <SignInButton />
         ) : (
           <>
