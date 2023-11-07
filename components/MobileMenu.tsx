@@ -7,7 +7,7 @@ const MobileMenu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="visible sm:hidden flex items-center">
+    <div className="flex items-center">
       <button onClick={() => setIsMenuOpen(true)}>
         <MenuIcon />
       </button>

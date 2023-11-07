@@ -9,8 +9,8 @@ interface NavbarProps {
 }
 
 const navbarClassNames = {
-  mobile: "min-w-[14rem] space-y-4 py-2 font-medium flex flex-col sm:hidden",
-  desktop: "space-x-8 hidden sm:flex font-medium",
+  mobile: "min-w-[14rem] space-y-4 py-2 font-medium flex flex-col",
+  desktop: "space-x-8 flex font-medium",
 };
 
 enum NAV_LINK {
