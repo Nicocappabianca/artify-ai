@@ -19,7 +19,7 @@ interface ModalProps {
 const Modal: FC<ModalProps> = ({ isOpen, closeModal, children, position }) => {
   return (
     <div
-      className={`fixed inset-0 z-50 w-full h-full p-5 bg-black/20 backdrop-blur-sm ${
+      className={`fixed inset-0 z-50 w-screen h-screen p-5 bg-black/20 backdrop-blur-sm ${
         isOpen ? "block" : "hidden"
       }`}
     >
