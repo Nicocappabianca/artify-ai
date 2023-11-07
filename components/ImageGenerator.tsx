@@ -32,7 +32,7 @@ const ImageGenerator = () => {
           <PlayIcon />
         </button>
       </div>
-      <div className="w-[250px] h-[250px] sm:w-[500px] sm:h-[500px] mx-auto mt-12 flex items-center justify-center rounded-md relative">
+      <div className="w-[340px] h-[340px] sm:w-[500px] sm:h-[500px] max-w-full mx-auto mt-12 flex items-center justify-center rounded-md relative">
         {isLoading && (
           <div className="flex flex-col items-center">
             <LoadingSpinner />
