@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { PlayIcon } from "@/components/icons";
-import { LoadingSpinner } from "@/components";
+import { Button, LoadingSpinner } from "@/components";
 import { useGenerateImage } from "@/hooks/useGenerateImage";
 import Image from "next/image";
 
@@ -24,13 +24,13 @@ const ImageGenerator = () => {
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
         />
-        <button
+        <Button
+          className="absolute bottom-4 right-3"
           onClick={handlePromptSubmit}
           disabled={!prompt || isLoading}
-          className="absolute bottom-4 right-3 bg-slate-400 rounded-md text-slate-900 border border-slate-900 py-1 px-1.5 hover:bg-slate-900 hover:text-slate-400 hover:border hover:border-slate-400 transition active:scale-95 disabled:opacity-40 disabled:pointer-events-none"
         >
           <PlayIcon />
-        </button>
+        </Button>
       </div>
       <div className="w-[340px] h-[340px] sm:w-[500px] sm:h-[500px] max-w-full mx-auto mt-12 flex items-center justify-center rounded-md relative">
         {isLoading && (
