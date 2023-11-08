@@ -3,14 +3,14 @@ import { useState } from "react";
 
 const FILE_NAME = "artify-image.png";
 
-interface useGenerateImageReturn {
+interface UseGenerateImageReturn {
   isLoading: boolean;
   generateImage: (prompt: string) => void;
   imageUrl: string | null;
   imageFile: File | null;
 }
 
-export const useGenerateImage = (): useGenerateImageReturn => {
+export const useGenerateImage = (): UseGenerateImageReturn => {
   const [isLoading, setIsLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [imageFile, setImageFile] = useState<File | null>(null);
