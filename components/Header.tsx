@@ -6,7 +6,7 @@ const Header = async () => {
   const session = await getServerSession();
 
   return (
-    <header className="fixed w-full top-0 z-10">
+    <header className="fixed w-full top-0 z-10 bg-slate-900">
       <div className="container mx-auto py-5 px-5 md:px-0 flex justify-between items-center">
         <Link href="/" className="font-bold text-xl">
           Artify
