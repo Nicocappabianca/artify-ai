@@ -26,7 +26,7 @@ const ImageGenerator = () => {
         />
         <button
           onClick={handlePromptSubmit}
-          disabled={!prompt}
+          disabled={!prompt || isLoading}
           className="absolute bottom-4 right-3 bg-slate-400 rounded-md text-slate-900 border border-slate-900 py-1 px-1.5 hover:bg-slate-900 hover:text-slate-400 hover:border hover:border-slate-400 transition active:scale-95 disabled:opacity-40 disabled:pointer-events-none"
         >
           <PlayIcon />
