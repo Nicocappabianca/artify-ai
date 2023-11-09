@@ -9,12 +9,12 @@ const modalPositionClass: Record<ModalPosition, string> = {
   right: "ml-auto",
 };
 
-interface ModalProps {
+type ModalProps = {
   isOpen: boolean;
   closeModal: () => void;
   children?: ReactNode;
   position?: ModalPosition;
-}
+};
 
 const Modal: FC<ModalProps> = ({ isOpen, closeModal, children, position }) => {
   return (

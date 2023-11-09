@@ -3,10 +3,10 @@ import { FC } from "react";
 import Link from "next/link";
 import { signOut } from "next-auth/react";
 
-interface NavbarProps {
+type NavbarProps = {
   isMobile?: boolean;
   closeMenu?: () => void;
-}
+};
 
 const navbarClassNames = {
   mobile: "min-w-[14rem] space-y-4 py-2 font-medium flex flex-col",
