@@ -3,3 +3,4 @@ export { default as CloseIcon } from "./CloseIcon";
 export { default as GoogleIcon } from "./GoogleIcon";
 export { default as PlayIcon } from "./PlayIcon";
 export { default as DownloadIcon } from "./DownloadIcon";
+export { default as ShareIcon } from "./ShareIcon";
