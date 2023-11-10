@@ -3,10 +3,11 @@ import { useState } from "react";
 import { DownloadIcon, PlayIcon, ShareIcon } from "@/components/icons";
 import { Button, LoadingSpinner } from "@/components";
 import { useGenerateImage } from "@/hooks/useGenerateImage";
+import { downloadImage } from "@/utils/functions/";
 import Image from "next/image";
 
 const ImageGenerator = () => {
-  const { isLoading, imageUrl, imageFile, generateImage } = useGenerateImage();
+  const { isLoading, imageUrl, generateImage } = useGenerateImage();
   const [prompt, setPrompt] = useState("");
 
   const handlePromptSubmit = () => {
@@ -48,7 +49,7 @@ const ImageGenerator = () => {
               className="object-cover"
             />
             <div className="flex space-x-3 font-semibold absolute -bottom-[50px]">
-              <Button className="flex">
+              <Button className="flex" onClick={() => downloadImage(imageUrl)}>
                 <DownloadIcon className="mr-1" /> Download
               </Button>
               <Button className="flex">
