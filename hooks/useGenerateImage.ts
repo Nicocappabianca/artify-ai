@@ -10,7 +10,7 @@ type UseGenerateImageReturn = {
   imageFile: File | null;
 };
 
-export const useGenerateImage = (): UseGenerateImageReturn => {
+const useGenerateImage = (): UseGenerateImageReturn => {
   const [isLoading, setIsLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [imageFile, setImageFile] = useState<File | null>(null);
@@ -43,3 +43,5 @@ export const useGenerateImage = (): UseGenerateImageReturn => {
     imageFile,
   };
 };
+
+export default useGenerateImage;

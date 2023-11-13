@@ -15,4 +15,5 @@ const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app);
 export const storage = getStorage(app);
-export const POST_COLLECTION_NAME = "post";
+export const POST_COLLECTION_NAME = "artify-post";
+export const IMAGES_FOLDER_NAME = "images";

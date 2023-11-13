@@ -1,5 +1,5 @@
 import { ImageGenerator } from "@/components";
-import { getPageTitle } from "@/utils/metadata-functions";
+import { getPageTitle } from "@/utils/functions";
 import { Metadata } from "next";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";

@@ -1,4 +1,4 @@
-import { getPageTitle } from "@/utils/metadata-functions";
+import { getPageTitle } from "@/utils/functions";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
