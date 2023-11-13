@@ -6,3 +6,4 @@ export { default as SignInButton } from "./SignInButton";
 export { default as ImageGenerator } from "./ImageGenerator";
 export { default as LoadingSpinner } from "./LoadingSpinner";
 export { default as Button } from "./Button";
+export { default as ShareButton } from "./ShareButton";

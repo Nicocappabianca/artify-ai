@@ -5,16 +5,24 @@ import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { DefaultSession } from "next-auth";
 import { v4 } from "uuid";
 
+export enum UploadStatus {
+  READY,
+  LOADING,
+  SUCCESS,
+  ERROR,
+}
+
 type useUploadImageReturn = {
   uploadImage: (imageFile: File, prompt: string, session: DefaultSession) => Promise<void>;
-  isLoading: boolean;
+  status: UploadStatus;
+  resetStatus: () => void;
 };
 
 const useUploadImage = (): useUploadImageReturn => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState(UploadStatus.READY);
 
   const uploadImage = async (imageFile: File, prompt: string, session: DefaultSession) => {
-    setIsLoading(true);
+    setStatus(UploadStatus.LOADING);
 
     const postRef = collection(db, POST_COLLECTION_NAME);
     const imageRef = ref(storage, `${IMAGES_FOLDER_NAME}/${imageFile.name + v4()}`);
@@ -33,14 +41,18 @@ const useUploadImage = (): useUploadImageReturn => {
       });
     } catch (error) {
       console.error("Error uploading image:", error);
+      setStatus(UploadStatus.ERROR);
     }
 
-    setIsLoading(false);
+    setStatus(UploadStatus.SUCCESS);
   };
+
+  const resetStatus = () => setStatus(UploadStatus.READY);
 
   return {
     uploadImage,
-    isLoading,
+    status,
+    resetStatus,
   };
 };
 

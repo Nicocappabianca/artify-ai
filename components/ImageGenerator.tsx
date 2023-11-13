@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import { DownloadIcon, PlayIcon, ShareIcon } from "@/components/icons";
-import { Button, LoadingSpinner } from "@/components";
+import { DownloadIcon, PlayIcon } from "@/components/icons";
+import { Button, LoadingSpinner, ShareButton } from "@/components";
 import { useGenerateImage, useUploadImage } from "@/hooks";
 import { downloadImage } from "@/utils/functions/";
 import { useSession } from "next-auth/react";
@@ -9,12 +9,13 @@ import Image from "next/image";
 
 const ImageGenerator = () => {
   const { isLoading: isGeneratingImage, imageUrl, imageFile, generateImage } = useGenerateImage();
-  const { uploadImage, isLoading: isUploading } = useUploadImage();
+  const { uploadImage, status: uploadStatus, resetStatus: resetUploadStatus } = useUploadImage();
   const { data: session, status } = useSession();
   const [prompt, setPrompt] = useState("");
 
   const handlePromptSubmit = () => {
     if (prompt) {
+      resetUploadStatus();
       generateImage(prompt);
     }
   };
@@ -56,23 +57,10 @@ const ImageGenerator = () => {
                 <DownloadIcon className="mr-1" /> Download
               </Button>
               {imageFile && status === "authenticated" && (
-                <Button
-                  disabled={isUploading}
-                  className="flex items-center transition-all"
+                <ShareButton
                   onClick={() => uploadImage(imageFile, prompt, session)}
-                >
-                  {!isUploading && (
-                    <>
-                      <ShareIcon className="mr-1" />
-                      Share with Artify
-                    </>
-                  )}
-                  {isUploading && (
-                    <>
-                      <LoadingSpinner className="w-5 h-5" /> Uploading...
-                    </>
-                  )}
-                </Button>
+                  uploadStatus={uploadStatus}
+                />
               )}
             </div>
           </>
