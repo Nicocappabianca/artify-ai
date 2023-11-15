@@ -35,9 +35,9 @@ const useUploadImage = (): useUploadImageReturn => {
       await addDoc(postRef, {
         prompt: prompt,
         image: url,
-        userEmail: session.user?.email,
-        userImage: session.user?.image,
-        userName: session.user?.name,
+        userEmail: session.user?.email ?? "",
+        userImage: session.user?.image ?? "",
+        userName: session.user?.name ?? "",
       });
     } catch (error) {
       console.error("Error uploading image:", error);
