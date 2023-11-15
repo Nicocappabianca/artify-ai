@@ -13,9 +13,7 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   const postRef = collection(db, POST_COLLECTION_NAME);
-
   const data = await getDocs(postRef);
-
   const posts = data.docs.map((doc) => ({ ...doc.data(), id: doc.id })) as Post[];
 
   return (
