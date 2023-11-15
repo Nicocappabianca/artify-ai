@@ -14,7 +14,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body className={`${inter.className} bg-slate-900 text-slate-400`}>
         <Header />
         <SessionProvider session={session}>
-          <main className="container mx-auto pt-16 px-5 md:px-0 ">{children}</main>
+          <main className="container mx-auto pt-16 pb-12 px-5 md:px-0 ">{children}</main>
         </SessionProvider>
       </body>
     </html>
