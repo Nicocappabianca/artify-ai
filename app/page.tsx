@@ -22,14 +22,14 @@ export default async function Home() {
   const session = await getServerSession();
 
   return (
-    <section className="pt-8 sm:pt-12 text-center">
+    <section className="pt-8 pb-8 sm:pt-12 text-center">
       <h1 className="text-lg text-white sm:text-3xl font-bold">
         🎨 Artify Hub: Create, Share, Inspire 🚀
       </h1>
       <p className="pt-3 pb-16 sm:pb-20 text-md sm:text-lg max-w-xs sm:max-w-3xl mx-auto">
         Dive into our community's unique blend of inspiration and AI artistry
       </p>
-      {posts.length > 1 ? (
+      {posts.length > 0 ? (
         <PostsList posts={posts} />
       ) : (
         <div>

@@ -37,7 +37,11 @@ const ImageGenerator = () => {
           <PlayIcon />
         </Button>
       </div>
-      <div className="w-[340px] h-[340px] sm:w-[500px] sm:h-[500px] max-w-full mx-auto mt-8 flex items-center justify-center rounded-md relative">
+      <div
+        className={`w-[340px] h-[340px] sm:w-[500px] sm:h-[500px] max-w-full mx-auto mt-8 flex items-center justify-center rounded-md relative ${
+          imageUrl ? "mb-20" : ""
+        }`}
+      >
         {isGeneratingImage && (
           <div className="flex flex-col items-center">
             <LoadingSpinner />
