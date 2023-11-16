@@ -4,3 +4,8 @@ export const STABLE_DIFFUSION_API =
 export enum AuthProviders {
   GOOGLE = "google",
 }
+
+export enum NavLinks {
+  GENERATE = "/generate",
+  GALLERY = "/gallery",
+}

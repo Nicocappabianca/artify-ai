@@ -2,6 +2,7 @@
 import { FC } from "react";
 import Link from "next/link";
 import { signOut } from "next-auth/react";
+import { NavLinks } from "@/utils/constants";
 
 type NavbarProps = {
   isMobile?: boolean;
@@ -13,22 +14,17 @@ const navbarClassNames = {
   desktop: "space-x-8 flex font-medium",
 };
 
-enum NAV_LINK {
-  generate = "/generate",
-  gallery = "/gallery",
-}
-
 const Navbar: FC<NavbarProps> = ({ isMobile, closeMenu }) => {
   return (
     <nav>
       <ul className={navbarClassNames[isMobile ? "mobile" : "desktop"]}>
         <li className="hover:text-slate-200">
-          <Link href={NAV_LINK.generate} onClick={closeMenu}>
+          <Link href={NavLinks.GENERATE} onClick={closeMenu}>
             ✨ Let's Generate Art! ✨
           </Link>
         </li>
         <li className="hover:text-slate-200">
-          <Link href={NAV_LINK.gallery} onClick={closeMenu}>
+          <Link href={NavLinks.GALLERY} onClick={closeMenu}>
             My Gallery 🖼️
           </Link>
         </li>
