@@ -1,3 +1,4 @@
+"use client";
 import { FC } from "react";
 import Image from "next/image";
 
@@ -14,7 +15,8 @@ const Post: FC<PostProps> = ({ image, userImage, userName }) => {
         src={image}
         layout="fill"
         alt={`image created by ${userName} with Artify`}
-        className="rounded-lg"
+        className="rounded-lg bg-slate-400/25 animate-pulse"
+        onLoadingComplete={(image) => image.classList.remove("bg-slate-400/25", "animate-pulse")}
       />
       <div className="absolute inset-0 bg-black/60 rounded-lg hidden group-hover:flex items-start justify-start p-4">
         <div className="flex items-center space-x-2">
