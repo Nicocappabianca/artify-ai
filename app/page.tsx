@@ -1,9 +1,6 @@
-import { collection, getDocs } from "firebase/firestore";
-import { db, POST_COLLECTION_NAME } from "@/utils/firebase-config";
-import { getPageTitle } from "@/utils/functions";
+import { getPageTitle, getPosts } from "@/utils/functions";
 import { PostsList, SignInButton } from "@/components";
 import { NavLinks } from "@/utils/constants";
-import { Post } from "@/types";
 import { Metadata } from "next";
 import { getServerSession } from "next-auth";
 import Link from "next/link";
@@ -15,10 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  const postRef = collection(db, POST_COLLECTION_NAME);
-  const data = await getDocs(postRef);
-  const posts = data.docs.map((doc) => ({ ...doc.data(), id: doc.id })) as Post[];
-
+  const posts = await getPosts();
   const session = await getServerSession();
 
   return (
