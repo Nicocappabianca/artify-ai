@@ -29,7 +29,7 @@ const Post: FC<PostProps> = ({ image, userImage, userName, prompt }) => {
               alt={`${userName} avatar`}
             />
           </div>
-          <p className="text-white font-semibold">{userName}</p>
+          <p className="text-white font-semibold text-left">{userName}</p>
         </div>
         <p className="text-white truncate max-w-full">{prompt}</p>
       </div>
