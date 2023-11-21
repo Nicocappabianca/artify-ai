@@ -20,7 +20,7 @@ const Navbar: FC<NavbarProps> = ({ isMobile, closeMenu }) => {
       <ul className={navbarClassNames[isMobile ? "mobile" : "desktop"]}>
         <li className="hover:text-slate-200">
           <Link href={NavLinks.GENERATE} onClick={closeMenu}>
-            ✨ Let's Generate Art! ✨
+            Generate Art 🎨
           </Link>
         </li>
         <li className="hover:text-slate-200">

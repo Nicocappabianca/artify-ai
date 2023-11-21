@@ -20,9 +20,17 @@ export default async function Home() {
       <h1 className="text-lg text-white sm:text-3xl font-bold">
         🎨 Artify Hub: Create, Share, Inspire 🚀
       </h1>
-      <p className="pt-3 pb-16 sm:pb-20 text-md sm:text-lg max-w-xs sm:max-w-3xl mx-auto">
+      <p className="pt-3 pb-8 sm:pb-10 text-md sm:text-lg max-w-xs sm:max-w-3xl mx-auto">
         Dive into our community's unique blend of inspiration and AI artistry
       </p>
+      {session?.user && (
+        <Link
+          className="block w-fit mx-auto mb-8 sm:mb-10 bg-slate-900 rounded-md text-slate-400 border border-slate-400 py-2 px-2.5 hover:bg-slate-400 hover:text-slate-900 hover:border hover:border-slate-900 transition"
+          href={NavLinks.GENERATE}
+        >
+          ✨ Start Creating Now! ✨
+        </Link>
+      )}
       {posts.length > 0 ? (
         <PostsList posts={posts} />
       ) : (
