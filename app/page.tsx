@@ -25,7 +25,7 @@ export default async function Home() {
       </p>
       {session?.user && (
         <Link
-          className="block w-fit mx-auto mb-8 sm:mb-10 bg-slate-900 rounded-md text-slate-400 border border-slate-400 py-2 px-2.5 hover:bg-slate-400 hover:text-slate-900 hover:border hover:border-slate-900 transition"
+          className="block w-fit mx-auto mb-8 sm:mb-10 bg-slate-900 rounded-md text-slate-400 border border-slate-400 py-2 px-2.5 hover:bg-slate-700 hover:text-white hover:border hover:border-slate-700 transition"
           href={NavLinks.GENERATE}
         >
           ✨ Start Creating Now! ✨
@@ -43,7 +43,7 @@ export default async function Home() {
           </p>
           {session?.user ? (
             <Link
-              className="bg-slate-900 rounded-md text-slate-400 border border-slate-400 py-2 px-2.5 hover:bg-slate-400 hover:text-slate-900 hover:border hover:border-slate-900 transition"
+              className="bg-slate-900 rounded-md text-slate-400 border border-slate-400 py-2 px-2.5 hover:bg-slate-700 hover:text-white hover:border hover:border-slate-700 transition"
               href={NavLinks.GENERATE}
             >
               ✨ Let's Generate Art! ✨
