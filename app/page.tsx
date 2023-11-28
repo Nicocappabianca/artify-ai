@@ -17,9 +17,7 @@ export default async function Home() {
 
   return (
     <section className="pt-8 pb-8 sm:pt-12 text-center">
-      <h1 className="text-lg text-white sm:text-3xl font-bold">
-        🎨 Artify Hub: Create, Share, Inspire 🚀
-      </h1>
+      <h1 className="text-lg text-white sm:text-3xl font-bold">🎨 Create, Share, Inspire 🚀</h1>
       <p className="pt-3 pb-8 sm:pb-10 text-md sm:text-lg max-w-xs sm:max-w-3xl mx-auto">
         Dive into our community's unique blend of inspiration and AI artistry
       </p>
