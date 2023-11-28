@@ -5,7 +5,7 @@ import { downloadImage } from "@/utils/functions";
 import Image from "next/image";
 import Link from "next/link";
 
-type PostProps = {
+type PostPreviewProps = {
   image: string;
   userImage: string;
   userName: string;
@@ -13,7 +13,7 @@ type PostProps = {
   id: string;
 };
 
-const Post: FC<PostProps> = ({ image, userImage, userName, prompt, id }) => {
+const PostPreview: FC<PostPreviewProps> = ({ image, userImage, userName, prompt, id }) => {
   return (
     <Link
       href={`/image/${id}`}
@@ -52,4 +52,4 @@ const Post: FC<PostProps> = ({ image, userImage, userName, prompt, id }) => {
   );
 };
 
-export default Post;
+export default PostPreview;

@@ -8,3 +8,4 @@ export { default as LoadingSpinner } from "./LoadingSpinner";
 export { default as Button } from "./Button";
 export { default as ShareButton } from "./ShareButton";
 export { default as PostsList } from "./PostsList";
+export { default as PostPreview } from "./PostPreview";

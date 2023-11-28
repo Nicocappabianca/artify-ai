@@ -1,9 +1,9 @@
 import { FC } from "react";
-import Post from "@/components/Post";
-import { Post as PostType } from "@/types";
+import { PostPreview } from "@/components";
+import { Post } from "@/types";
 
 type PostsListProps = {
-  posts: PostType[];
+  posts: Post[];
 };
 
 const PostsList: FC<PostsListProps> = ({ posts }) => {
@@ -12,7 +12,7 @@ const PostsList: FC<PostsListProps> = ({ posts }) => {
       {posts.map((post) => {
         const { id, image, userName, userImage, prompt } = post;
         return image ? (
-          <Post
+          <PostPreview
             key={id}
             image={image}
             userName={userName}
