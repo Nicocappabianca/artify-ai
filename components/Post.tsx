@@ -1,6 +1,7 @@
 "use client";
 import { FC } from "react";
 import { DownloadIcon } from "@/components/icons";
+import { downloadImage } from "@/utils/functions";
 import Image from "next/image";
 
 type PostProps = {
@@ -33,7 +34,10 @@ const Post: FC<PostProps> = ({ image, userImage, userName, prompt }) => {
             </div>
             <p className="text-white font-semibold text-left ml-2 ">{userName}</p>
           </div>
-          <button className="rounded-full hover:bg-slate-400/30 p-2 transition">
+          <button
+            onClick={() => downloadImage(image)}
+            className="rounded-full hover:bg-slate-400/30 p-2 transition"
+          >
             <DownloadIcon className="text-white w-6 h-6" />
           </button>
         </div>

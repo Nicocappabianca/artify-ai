@@ -8,7 +8,7 @@ const Header = async () => {
   return (
     <header className="fixed w-full top-0 z-10 bg-slate-900">
       <div className="container mx-auto py-5 px-5 md:px-0 flex justify-between items-center">
-        <Link href="/" className="font-bold text-xl">
+        <Link href="/" className="font-semibold text-2xl sm:text-3xl text-artify">
           Artify
         </Link>
         {!session?.user ? (

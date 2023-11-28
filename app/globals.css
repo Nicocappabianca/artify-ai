@@ -11,5 +11,10 @@
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
+    .text-artify {
+      color: transparent;
+      background-clip: text;
+      background-image: linear-gradient(rgb(251, 194, 235), rgb(166, 192, 238));
+    }
   }
 }
