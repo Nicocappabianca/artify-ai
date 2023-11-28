@@ -3,7 +3,7 @@ import { GoogleIcon } from "@/components/icons";
 import { AuthProviders } from "@/utils/constants";
 import { signIn } from "next-auth/react";
 
-const SignInButton = async () => {
+const SignInButton = () => {
   return (
     <button
       onClick={() => signIn(AuthProviders.GOOGLE)}
