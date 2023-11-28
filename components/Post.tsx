@@ -3,17 +3,22 @@ import { FC } from "react";
 import { DownloadIcon } from "@/components/icons";
 import { downloadImage } from "@/utils/functions";
 import Image from "next/image";
+import Link from "next/link";
 
 type PostProps = {
   image: string;
   userImage: string;
   userName: string;
   prompt: string;
+  id: string;
 };
 
-const Post: FC<PostProps> = ({ image, userImage, userName, prompt }) => {
+const Post: FC<PostProps> = ({ image, userImage, userName, prompt, id }) => {
   return (
-    <div className="relative w-72 h-72 sm:w-96 sm:h-96 mx-auto group cursor-pointer">
+    <Link
+      href={`/image/${id}`}
+      className="relative w-72 h-72 sm:w-96 sm:h-96 mx-auto group cursor-pointer"
+    >
       <Image
         src={image}
         layout="fill"
@@ -43,7 +48,7 @@ const Post: FC<PostProps> = ({ image, userImage, userName, prompt }) => {
         </div>
         <p className="text-white text-sm truncate max-w-full">{prompt}</p>
       </div>
-    </div>
+    </Link>
   );
 };
 

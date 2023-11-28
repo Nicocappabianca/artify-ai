@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "Your personal gallery of creative wonders. Explore, organize, and enjoy your unique masterpieces with Artify.",
 };
 
-export default async function Home() {
+export default async function MyGalleryPage() {
   const session = await getServerSession();
 
   if (!session?.user) {

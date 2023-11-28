@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "Unleash Your Creativity with AI-Powered Artistry. Create, Share, and Inspire with Stunning Images.",
 };
 
-export default async function Home() {
+export default async function HomePage() {
   const posts = await getPosts();
   const session = await getServerSession();
 

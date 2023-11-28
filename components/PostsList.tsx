@@ -12,7 +12,14 @@ const PostsList: FC<PostsListProps> = ({ posts }) => {
       {posts.map((post) => {
         const { id, image, userName, userImage, prompt } = post;
         return image ? (
-          <Post key={id} image={image} userName={userName} userImage={userImage} prompt={prompt} />
+          <Post
+            key={id}
+            image={image}
+            userName={userName}
+            userImage={userImage}
+            prompt={prompt}
+            id={id}
+          />
         ) : null;
       })}
     </div>
