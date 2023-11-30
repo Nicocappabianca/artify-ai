@@ -1,5 +1,5 @@
 import { getPageTitle, getPostById } from "@/utils/functions";
-import { NoPostFound } from "@/components";
+import { FullPost, NoPostFound } from "@/components";
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const post = await getPostById(params.id);
@@ -15,7 +15,17 @@ export default async function ImagePage({ params }: { params: { id: string } }) 
 
   return (
     <section className="pt-8 sm:pt-12 text-center">
-      {post ? <h1>{post.prompt}</h1> : <NoPostFound />}
+      {post ? (
+        <FullPost
+          image={post.image}
+          userImage={post.userImage}
+          userName={post.userName}
+          prompt={post.prompt}
+          id={post.id}
+        />
+      ) : (
+        <NoPostFound />
+      )}
     </section>
   );
 }

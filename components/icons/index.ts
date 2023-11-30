@@ -6,3 +6,4 @@ export { default as DownloadIcon } from "./DownloadIcon";
 export { default as ShareIcon } from "./ShareIcon";
 export { default as CircleCheckIcon } from "./CircleCheckIcon";
 export { default as ExclamationIcon } from "./ExclamationIcon";
+export { default as TrashIcon } from "./TrashIcon";
