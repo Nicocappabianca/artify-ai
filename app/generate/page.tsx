@@ -1,4 +1,5 @@
 import { ImageGenerator } from "@/components";
+import { NavLinks } from "@/utils/constants";
 import { getPageTitle } from "@/utils/functions";
 import { Metadata } from "next";
 import { getServerSession } from "next-auth";
@@ -14,7 +15,7 @@ export default async function GeneratePage() {
   const session = await getServerSession();
 
   if (!session?.user) {
-    redirect("/");
+    redirect(NavLinks.HOME);
   }
 
   return (

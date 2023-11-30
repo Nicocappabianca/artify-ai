@@ -1,5 +1,5 @@
 import { getPageTitle, getPostById } from "@/utils/functions";
-import Link from "next/link";
+import { NoPostFound } from "@/components";
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const post = await getPostById(params.id);
@@ -11,13 +11,11 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
 }
 
 export default async function ImagePage({ params }: { params: { id: string } }) {
+  const post = await getPostById(params.id);
+
   return (
     <section className="pt-8 sm:pt-12 text-center">
-      <h1 className="text-2xl font-bold">⚠️ Page in progress 👷🏼‍♂️</h1>
-      <p className="py-2">We are currently working here</p>
-      <Link className="font-semibold text-white" href="/">
-        Go back to home page
-      </Link>
+      {post ? <h1>{post.prompt}</h1> : <NoPostFound />}
     </section>
   );
 }

@@ -16,7 +16,7 @@ export default async function MyGalleryPage() {
   const session = await getServerSession();
 
   if (!session?.user) {
-    redirect("/");
+    redirect(NavLinks.HOME);
   }
 
   const posts = await getPosts({ fieldName: "userEmail", opStr: "==", value: session.user.email });

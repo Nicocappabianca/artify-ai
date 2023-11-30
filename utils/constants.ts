@@ -6,6 +6,7 @@ export enum AuthProviders {
 }
 
 export enum NavLinks {
+  HOME = "/",
   GENERATE = "/generate",
   GALLERY = "/my-gallery",
 }
