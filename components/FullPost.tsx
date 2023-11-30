@@ -2,6 +2,7 @@
 import { FC } from "react";
 import { Button } from "@/components";
 import { DownloadIcon, TrashIcon } from "@/components/icons";
+import { downloadImage } from "@/utils/functions";
 import Image from "next/image";
 
 type FullPostProps = {
@@ -47,7 +48,7 @@ const FullPost: FC<FullPostProps> = ({
         />
       </div>
       <div className="flex mt-4 space-x-3">
-        <Button>
+        <Button onClick={() => downloadImage(image)}>
           <DownloadIcon className="w-8 h-8" />
         </Button>
         {isCurrentUserPost && (
