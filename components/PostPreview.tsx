@@ -14,6 +14,11 @@ type PostPreviewProps = {
 };
 
 const PostPreview: FC<PostPreviewProps> = ({ image, userImage, userName, prompt, id }) => {
+  const handleDownloadClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    event.preventDefault();
+    downloadImage(image);
+  };
+
   return (
     <Link
       href={`/image/${id}`}
@@ -40,7 +45,7 @@ const PostPreview: FC<PostPreviewProps> = ({ image, userImage, userName, prompt,
             <p className="text-white font-semibold text-left ml-2 ">{userName}</p>
           </div>
           <button
-            onClick={() => downloadImage(image)}
+            onClick={handleDownloadClick}
             className="rounded-full hover:bg-slate-400/30 p-2 transition"
           >
             <DownloadIcon className="text-white w-6 h-6" />
