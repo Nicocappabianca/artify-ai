@@ -12,6 +12,26 @@ const nextConfig = {
       },
     ],
   },
+  headers: () => [
+    {
+      source: "/",
+      headers: [
+        {
+          key: "Cache-Control",
+          value: "no-store",
+        },
+      ],
+    },
+    {
+      source: "/my-gallery",
+      headers: [
+        {
+          key: "Cache-Control",
+          value: "no-store",
+        },
+      ],
+    },
+  ],
 };
 
 module.exports = nextConfig;
