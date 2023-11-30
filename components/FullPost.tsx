@@ -10,9 +10,17 @@ type FullPostProps = {
   userName: string;
   prompt: string;
   id: string;
+  isCurrentUserPost: boolean;
 };
 
-const FullPost: FC<FullPostProps> = ({ image, userImage, userName, prompt, id }) => {
+const FullPost: FC<FullPostProps> = ({
+  image,
+  userImage,
+  userName,
+  prompt,
+  id,
+  isCurrentUserPost,
+}) => {
   return (
     <div className="flex flex-col mx-auto w-[300px] sm:w-[350px] lg:w-[500px] xl:w-[600px]">
       <div>
@@ -42,9 +50,11 @@ const FullPost: FC<FullPostProps> = ({ image, userImage, userName, prompt, id })
         <Button>
           <DownloadIcon className="w-8 h-8" />
         </Button>
-        <Button className="bg-red-500 group hover:border-red-500">
-          <TrashIcon className="w-8 h-8 group-hover:text-red-500" />
-        </Button>
+        {isCurrentUserPost && (
+          <Button className="bg-red-500 group hover:border-red-500">
+            <TrashIcon className="w-8 h-8 group-hover:text-red-500" />
+          </Button>
+        )}
       </div>
     </div>
   );
