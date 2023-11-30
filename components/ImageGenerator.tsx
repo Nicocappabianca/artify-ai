@@ -44,7 +44,7 @@ const ImageGenerator = () => {
       >
         {isGeneratingImage && (
           <div className="flex flex-col items-center">
-            <LoadingSpinner />
+            <LoadingSpinner className="mr-2" />
             <p className="text-lg pt-4">We're creating your masterpiece... ✨</p>
           </div>
         )}

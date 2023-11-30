@@ -1,17 +1,18 @@
 import { FC } from "react";
+import { twMerge } from "tailwind-merge";
 
 type LoadingSpinnerProps = {
   className?: string;
 };
 
-const loadingSpinnerClassNames = "w-12 h-12 mr-2 animate-spin text-gray-600 fill-slate-400";
+const loadingSpinnerClassNames = "w-12 h-12 animate-spin text-gray-600 fill-slate-400";
 
 const LoadingSpinner: FC<LoadingSpinnerProps> = ({ className }) => {
   return (
     <div>
       <svg
         aria-hidden="true"
-        className={`${loadingSpinnerClassNames} ${className || ""}`}
+        className={twMerge(loadingSpinnerClassNames, className)}
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

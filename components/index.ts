@@ -1,5 +1,6 @@
 export { default as Button } from "./Button";
 export { default as FullPost } from "./FullPost";
+export { default as DeletedPost } from "./DeletedPost";
 export { default as Header } from "./Header";
 export { default as ImageGenerator } from "./ImageGenerator";
 export { default as LoadingSpinner } from "./LoadingSpinner";

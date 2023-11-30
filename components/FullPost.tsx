@@ -1,8 +1,10 @@
 "use client";
 import { FC } from "react";
-import { Button } from "@/components";
+import { Button, DeletedPost, LoadingSpinner } from "@/components";
 import { DownloadIcon, TrashIcon } from "@/components/icons";
 import { downloadImage } from "@/utils/functions";
+import { DeleteStatus } from "@/hooks/useDeletePost";
+import { useDeletePost } from "@/hooks";
 import Image from "next/image";
 
 type FullPostProps = {
@@ -22,6 +24,15 @@ const FullPost: FC<FullPostProps> = ({
   id,
   isCurrentUserPost,
 }) => {
+  const { deletePost, status: deleteStatus } = useDeletePost();
+
+  const isDeletingPost = deleteStatus === DeleteStatus.LOADING;
+  const postWasDeleted = deleteStatus === DeleteStatus.SUCCESS;
+
+  if (postWasDeleted) {
+    return <DeletedPost />;
+  }
+
   return (
     <div className="flex flex-col mx-auto w-[300px] sm:w-[350px] lg:w-[500px] xl:w-[600px]">
       <div>
@@ -48,12 +59,20 @@ const FullPost: FC<FullPostProps> = ({
         />
       </div>
       <div className="flex mt-4 space-x-3">
-        <Button onClick={() => downloadImage(image)}>
+        <Button onClick={() => downloadImage(image)} disabled={isDeletingPost}>
           <DownloadIcon className="w-8 h-8" />
         </Button>
         {isCurrentUserPost && (
-          <Button className="bg-red-500 group hover:border-red-500">
-            <TrashIcon className="w-8 h-8 group-hover:text-red-500" />
+          <Button
+            onClick={() => deletePost(id)}
+            className="bg-red-500 group hover:border-red-500"
+            disabled={isDeletingPost}
+          >
+            {isDeletingPost ? (
+              <LoadingSpinner className="w-8 h-8" />
+            ) : (
+              <TrashIcon className="w-8 h-8 group-hover:text-red-500" />
+            )}
           </Button>
         )}
       </div>

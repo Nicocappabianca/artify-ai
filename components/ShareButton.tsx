@@ -26,7 +26,7 @@ const ShareButton: FC<ShareButtonProps> = ({ uploadStatus, onClick }) => {
       )}
       {uploadStatus === UploadStatus.LOADING && (
         <>
-          <LoadingSpinner className="w-5 h-5" />
+          <LoadingSpinner className="w-5 h-5 mr-2" />
           Uploading...
         </>
       )}
