@@ -1,7 +1,7 @@
 "use client";
 import { FC } from "react";
 import { DownloadIcon } from "@/components/icons";
-import { downloadImage } from "@/utils/functions";
+import { downloadImage, getBlobUrl } from "@/utils/functions";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,9 +14,10 @@ type PostPreviewProps = {
 };
 
 const PostPreview: FC<PostPreviewProps> = ({ image, userImage, userName, prompt, id }) => {
-  const handleDownloadClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleDownload = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault();
-    downloadImage(image);
+    const blobUrl = await getBlobUrl(image);
+    blobUrl && downloadImage(blobUrl);
   };
 
   return (
@@ -45,7 +46,7 @@ const PostPreview: FC<PostPreviewProps> = ({ image, userImage, userName, prompt,
             <p className="text-white font-semibold text-left ml-2 ">{userName}</p>
           </div>
           <button
-            onClick={handleDownloadClick}
+            onClick={handleDownload}
             className="rounded-full hover:bg-slate-400/30 p-2 transition"
           >
             <DownloadIcon className="text-white w-6 h-6" />

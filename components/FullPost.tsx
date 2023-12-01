@@ -2,7 +2,7 @@
 import { FC } from "react";
 import { Button, DeletedPost, LoadingSpinner } from "@/components";
 import { DownloadIcon, TrashIcon } from "@/components/icons";
-import { downloadImage } from "@/utils/functions";
+import { downloadImage, getBlobUrl } from "@/utils/functions";
 import { DeleteStatus } from "@/hooks/useDeletePost";
 import { useDeletePost } from "@/hooks";
 import Image from "next/image";
@@ -33,6 +33,11 @@ const FullPost: FC<FullPostProps> = ({
     return <DeletedPost />;
   }
 
+  const handleDownload = async () => {
+    const blobUrl = await getBlobUrl(image);
+    blobUrl && downloadImage(blobUrl);
+  };
+
   return (
     <div className="flex flex-col mx-auto w-[300px] sm:w-[350px] lg:w-[500px] xl:w-[600px]">
       <div>
@@ -59,7 +64,7 @@ const FullPost: FC<FullPostProps> = ({
         />
       </div>
       <div className="flex mt-4 space-x-3">
-        <Button onClick={() => downloadImage(image)} disabled={isDeletingPost}>
+        <Button onClick={handleDownload} disabled={isDeletingPost}>
           <DownloadIcon className="w-8 h-8" />
         </Button>
         {isCurrentUserPost && (
