@@ -1,7 +1,6 @@
 import { getPageTitle, getPosts } from "@/utils/functions";
 import { PostsList, SignInButton } from "@/components";
 import { NavLinks } from "@/utils/constants";
-import openGraphImage from "@/public/opengraph-image.png";
 import { Metadata } from "next";
 import { getServerSession } from "next-auth";
 import Link from "next/link";
@@ -10,14 +9,6 @@ export const metadata: Metadata = {
   title: getPageTitle(),
   description:
     "Unleash Your Creativity with AI-Powered Artistry. Create, Share, and Inspire with Stunning Images.",
-
-  openGraph: {
-    images: [
-      {
-        url: openGraphImage.src,
-      },
-    ],
-  },
 };
 
 export default async function HomePage() {
