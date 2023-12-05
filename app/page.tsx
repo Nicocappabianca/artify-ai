@@ -9,6 +9,15 @@ export const metadata: Metadata = {
   title: getPageTitle(),
   description:
     "Unleash Your Creativity with AI-Powered Artistry. Create, Share, and Inspire with Stunning Images.",
+  openGraph: {
+    images: [
+      {
+        url: "https://firebasestorage.googleapis.com/v0/b/artify-f893b.appspot.com/o/images%2Fopengraph-image.png?alt=media&token=454c025e-1813-4561-a423-904d62a8bc22",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
 };
 
 export default async function HomePage() {
