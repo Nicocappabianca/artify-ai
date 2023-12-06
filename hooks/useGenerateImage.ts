@@ -5,7 +5,7 @@ const FILE_NAME = "artify-image.png";
 
 type UseGenerateImageReturn = {
   isLoading: boolean;
-  generateImage: (prompt: string) => void;
+  generateImage: (prompt: string) => Promise<void>;
   imageUrl: string | null;
   imageFile: File | null;
   hasError: boolean;
@@ -17,29 +17,34 @@ const useGenerateImage = (): UseGenerateImageReturn => {
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [hasError, setHasError] = useState<boolean>(false);
 
-  const generateImage = (prompt: string) => {
-    setIsLoading(true);
-    setImageUrl(null);
-    setImageFile(null);
+  const generateImage = async (prompt: string) => {
+    try {
+      setIsLoading(true);
+      setImageUrl(null);
+      setImageFile(null);
+      setHasError(false);
 
-    fetch(STABLE_DIFFUSION_API, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_HUGGING_FACE_TOKEN}`,
-      },
-      body: JSON.stringify({ inputs: prompt }),
-    })
-      .then((response) => {
-        if (!response.ok) throw new Error("An error occurred while generating the image.");
-        return response.blob();
-      })
-      .then((blob) => {
-        setImageUrl(URL.createObjectURL(blob));
-        setImageFile(new File([blob], FILE_NAME, { type: "image/png" }));
-      })
-      .catch((_error) => setHasError(true))
-      .finally(() => setIsLoading(false));
+      const response = await fetch(STABLE_DIFFUSION_API, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_HUGGING_FACE_TOKEN}`,
+        },
+        body: JSON.stringify({ inputs: prompt }),
+      });
+
+      if (!response.ok) {
+        throw new Error("An error occurred while generating the image.");
+      }
+
+      const blob = await response.blob();
+      setImageUrl(URL.createObjectURL(blob));
+      setImageFile(new File([blob], FILE_NAME, { type: "image/png" }));
+    } catch (error) {
+      setHasError(true);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return {
