@@ -30,7 +30,10 @@ const useGenerateImage = (): UseGenerateImageReturn => {
       },
       body: JSON.stringify({ inputs: prompt }),
     })
-      .then((response) => response.blob())
+      .then((response) => {
+        if (!response.ok) throw new Error("An error occurred while generating the image.");
+        return response.blob();
+      })
       .then((blob) => {
         setImageUrl(URL.createObjectURL(blob));
         setImageFile(new File([blob], FILE_NAME, { type: "image/png" }));
