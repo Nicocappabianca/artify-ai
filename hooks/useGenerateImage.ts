@@ -8,12 +8,14 @@ type UseGenerateImageReturn = {
   generateImage: (prompt: string) => void;
   imageUrl: string | null;
   imageFile: File | null;
+  hasError: boolean;
 };
 
 const useGenerateImage = (): UseGenerateImageReturn => {
   const [isLoading, setIsLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [imageFile, setImageFile] = useState<File | null>(null);
+  const [hasError, setHasError] = useState<boolean>(false);
 
   const generateImage = (prompt: string) => {
     setIsLoading(true);
@@ -33,6 +35,7 @@ const useGenerateImage = (): UseGenerateImageReturn => {
         setImageUrl(URL.createObjectURL(blob));
         setImageFile(new File([blob], FILE_NAME, { type: "image/png" }));
       })
+      .catch((_error) => setHasError(true))
       .finally(() => setIsLoading(false));
   };
 
@@ -41,6 +44,7 @@ const useGenerateImage = (): UseGenerateImageReturn => {
     generateImage,
     imageUrl,
     imageFile,
+    hasError,
   };
 };
 

@@ -8,7 +8,13 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 
 const ImageGenerator = () => {
-  const { isLoading: isGeneratingImage, imageUrl, imageFile, generateImage } = useGenerateImage();
+  const {
+    isLoading: isGeneratingImage,
+    imageUrl,
+    imageFile,
+    generateImage,
+    hasError,
+  } = useGenerateImage();
   const { uploadImage, status: uploadStatus, resetStatus: resetUploadStatus } = useUploadImage();
   const { data: session, status } = useSession();
   const [prompt, setPrompt] = useState("");
@@ -19,6 +25,8 @@ const ImageGenerator = () => {
       generateImage(prompt);
     }
   };
+
+  const canShowImage = imageUrl && !hasError && !isGeneratingImage;
 
   return (
     <>
@@ -48,7 +56,7 @@ const ImageGenerator = () => {
             <p className="text-lg pt-4">We're creating your masterpiece... ✨</p>
           </div>
         )}
-        {imageUrl && !isGeneratingImage && (
+        {canShowImage && (
           <>
             <Image
               src={imageUrl}
@@ -68,6 +76,13 @@ const ImageGenerator = () => {
               )}
             </div>
           </>
+        )}
+        {hasError && (
+          <div>
+            <p className="text-xl font-semibold mb-2">Oops! something went wrong 😰</p>
+            <p>Don't worry, it can happen!</p>
+            <p>Refresh the page and try again 🚀</p>
+          </div>
         )}
       </div>
     </>
