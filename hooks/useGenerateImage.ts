@@ -4,11 +4,12 @@ import { useState } from "react";
 const FILE_NAME = "artify-image.png";
 
 type UseGenerateImageReturn = {
-  isLoading: boolean;
   generateImage: (prompt: string) => Promise<void>;
+  isLoading: boolean;
+  hasError: boolean;
   imageUrl: string | null;
   imageFile: File | null;
-  hasError: boolean;
+  imagePrompt: string;
 };
 
 const useGenerateImage = (): UseGenerateImageReturn => {
@@ -16,6 +17,7 @@ const useGenerateImage = (): UseGenerateImageReturn => {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [hasError, setHasError] = useState<boolean>(false);
+  const [imagePrompt, setImagePrompt] = useState<string>("");
 
   const generateImage = async (prompt: string) => {
     try {
@@ -23,6 +25,7 @@ const useGenerateImage = (): UseGenerateImageReturn => {
       setImageUrl(null);
       setImageFile(null);
       setHasError(false);
+      setImagePrompt(prompt);
 
       const response = await fetch(STABLE_DIFFUSION_API, {
         method: "POST",
@@ -48,11 +51,12 @@ const useGenerateImage = (): UseGenerateImageReturn => {
   };
 
   return {
-    isLoading,
     generateImage,
+    isLoading,
+    hasError,
     imageUrl,
     imageFile,
-    hasError,
+    imagePrompt,
   };
 };
 

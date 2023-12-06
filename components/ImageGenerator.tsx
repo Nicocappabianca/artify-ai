@@ -9,11 +9,12 @@ import Image from "next/image";
 
 const ImageGenerator = () => {
   const {
+    generateImage,
     isLoading: isGeneratingImage,
+    hasError,
     imageUrl,
     imageFile,
-    generateImage,
-    hasError,
+    imagePrompt,
   } = useGenerateImage();
   const { uploadImage, status: uploadStatus, resetStatus: resetUploadStatus } = useUploadImage();
   const { data: session, status } = useSession();
@@ -70,7 +71,7 @@ const ImageGenerator = () => {
               </Button>
               {imageFile && status === "authenticated" && (
                 <ShareButton
-                  onClick={() => uploadImage(imageFile, prompt, session)}
+                  onClick={() => uploadImage(imageFile, imagePrompt, session)}
                   uploadStatus={uploadStatus}
                 />
               )}
