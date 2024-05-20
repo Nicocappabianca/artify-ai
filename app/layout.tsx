@@ -4,7 +4,7 @@ import { SessionProvider } from "@/components/providers";
 import { Quicksand } from "next/font/google";
 import "./globals.css";
 
-const quicksand = Quicksand({ subsets: ["latin"] });
+const quicksand = Quicksand({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"] });
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const session = await getServerSession();
