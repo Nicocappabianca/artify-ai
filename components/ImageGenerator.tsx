@@ -62,6 +62,7 @@ const ImageGenerator = () => {
             <Image
               src={imageUrl}
               fill
+              sizes="(max-width: 640px) 340px, 500px"
               alt="Image generated with AI"
               className="object-cover rounded-md"
             />

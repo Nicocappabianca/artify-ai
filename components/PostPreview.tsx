@@ -27,10 +27,11 @@ const PostPreview: FC<PostPreviewProps> = ({ image, userImage, userName, prompt,
     >
       <Image
         src={image}
-        layout="fill"
+        fill
+        sizes="(max-width: 640px) 18rem, 24rem"
         alt={`image created by ${userName} with Artify`}
         className="rounded-lg bg-slate-400/25 animate-pulse"
-        onLoadingComplete={(image) => image.classList.remove("bg-slate-400/25", "animate-pulse")}
+        onLoad={(image) => image.currentTarget.classList.remove("bg-slate-400/25", "animate-pulse")}
       />
       <div className="absolute inset-0 bg-black/60 rounded-lg hidden [@media(hover:hover)]:group-hover:flex flex-col items-start justify-between p-4">
         <div className="flex justify-between items-center w-full">
@@ -39,7 +40,8 @@ const PostPreview: FC<PostPreviewProps> = ({ image, userImage, userName, prompt,
               <Image
                 className="rounded-full"
                 src={userImage}
-                layout="fill"
+                fill
+                sizes="2.5rem"
                 alt={`${userName} avatar`}
               />
             </div>

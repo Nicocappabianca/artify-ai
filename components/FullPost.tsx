@@ -46,7 +46,8 @@ const FullPost: FC<FullPostProps> = ({
             <Image
               className="rounded-full"
               src={userImage}
-              layout="fill"
+              fill
+              sizes="2.5rem"
               alt={`${userName} avatar`}
             />
           </div>
@@ -57,10 +58,13 @@ const FullPost: FC<FullPostProps> = ({
       <div className="relative w-[300px] h-[300px] sm:w-[350px] sm:h-[350px] lg:w-[500px] lg:h-[500px] xl:w-[600px] xl:h-[600px]">
         <Image
           src={image}
-          layout="fill"
+          fill
+          sizes="(max-width: 640px) 300px, (max-width: 1024px) 350px, (max-width: 1280px) 500px, 600px"
           alt={`image created by ${userName} with Artify`}
           className="rounded-lg bg-slate-400/25 animate-pulse"
-          onLoadingComplete={(image) => image.classList.remove("bg-slate-400/25", "animate-pulse")}
+          onLoad={(image) =>
+            image.currentTarget.classList.remove("bg-slate-400/25", "animate-pulse")
+          }
         />
       </div>
       <div className="flex mt-4 space-x-3">
