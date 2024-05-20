@@ -12,6 +12,7 @@
     "firebase": "^9.21.0",
     "next": "14.0.1",
     "next-auth": "^4.24.4",
+    "next-nprogress-bar": "^2.3.12",
     "react": "^18",
     "react-dom": "^18",
     "react-firebase-hooks": "^5.1.1",
