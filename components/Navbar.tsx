@@ -18,17 +18,17 @@ const Navbar: FC<NavbarProps> = ({ isMobile, closeMenu }) => {
   return (
     <nav>
       <ul className={navbarClassNames[isMobile ? "mobile" : "desktop"]}>
-        <li className="hover:text-slate-200">
+        <li className="hover-hover:text-slate-200">
           <Link href={NavLinks.GENERATE} onClick={closeMenu}>
             Generate Art 🎨
           </Link>
         </li>
-        <li className="hover:text-slate-200">
+        <li className="hover-hover:text-slate-200">
           <Link href={NavLinks.GALLERY} onClick={closeMenu}>
             My Gallery 🖼️
           </Link>
         </li>
-        <li className="text-red-500 hover:text-red-400">
+        <li className="text-red-500 hover-hover:text-red-400">
           <button onClick={() => signOut()}>Sign Out</button>
         </li>
       </ul>

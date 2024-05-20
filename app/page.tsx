@@ -32,7 +32,7 @@ export default async function HomePage() {
       </p>
       {session?.user && (
         <Link
-          className="block font-semibold w-fit mx-auto mb-8 sm:mb-10 bg-slate-900 rounded-md text-slate-400 border border-slate-400 py-2 px-2.5 hover:bg-slate-700 hover:text-white hover:border hover:border-slate-700 transition"
+          className="block font-semibold w-fit mx-auto mb-8 sm:mb-10 bg-slate-900 rounded-md text-slate-400 border border-slate-400 py-2 px-2.5 hover-hover:bg-slate-700 hover-hover:text-white hover-hover:border hover-hover:border-slate-700 transition"
           href={NavLinks.GENERATE}
         >
           ✨ Start Creating Now! ✨
@@ -50,7 +50,7 @@ export default async function HomePage() {
           </p>
           {session?.user ? (
             <Link
-              className="bg-slate-900 rounded-md text-slate-400 border border-slate-400 py-2 px-2.5 hover:bg-slate-700 hover:text-white hover:border hover:border-slate-700 transition"
+              className="bg-slate-900 rounded-md text-slate-400 border border-slate-400 py-2 px-2.5 hover-hover:bg-slate-700 hover-hover:text-white hover-hover:border hover-hover:border-slate-700 transition"
               href={NavLinks.GENERATE}
             >
               ✨ Let's Generate Art! ✨

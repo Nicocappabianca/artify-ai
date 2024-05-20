@@ -74,13 +74,13 @@ const FullPost: FC<FullPostProps> = ({
         {isCurrentUserPost && (
           <Button
             onClick={() => deletePost(id)}
-            className="bg-red-500 group hover:border-red-500"
+            className="bg-red-500 group hover-hover:border-red-500"
             disabled={isDeletingPost}
           >
             {isDeletingPost ? (
               <LoadingSpinner className="w-8 h-8" />
             ) : (
-              <TrashIcon className="w-8 h-8 group-hover:text-red-500" />
+              <TrashIcon className="w-8 h-8 group-hover-hover:text-red-500" />
             )}
           </Button>
         )}
