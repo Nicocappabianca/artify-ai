@@ -21,21 +21,20 @@ const PostPreview: FC<PostPreviewProps> = ({ image, userImage, userName, prompt,
   };
 
   return (
-    <Link
-      href={`/image/${id}`}
-      className="relative w-72 h-72 sm:w-96 sm:h-96 mx-auto group cursor-pointer"
-    >
-      <Image
-        src={image}
-        fill
-        sizes="(max-width: 640px) 18rem, 24rem"
-        alt={`image created by ${userName} with Artify`}
-        className="rounded-lg bg-slate-400/25 animate-pulse"
-        onLoad={(image) => image.currentTarget.classList.remove("bg-slate-400/25", "animate-pulse")}
-      />
-      <div className="absolute inset-0 bg-black/60 rounded-lg hidden [@media(hover:hover)]:group-hover:flex flex-col items-start justify-between p-4">
-        <div className="flex justify-between items-center w-full">
-          <div className="flex items-center">
+    <div className="relative w-72 h-72 sm:w-96 sm:h-96 mx-auto group cursor-pointer">
+      <Link href={`/image/${id}`}>
+        <Image
+          src={image}
+          fill
+          sizes="(max-width: 640px) 18rem, 24rem"
+          alt={`image created by ${userName} with Artify`}
+          className="rounded-lg bg-slate-400/25 animate-pulse"
+          onLoad={(image) =>
+            image.currentTarget.classList.remove("bg-slate-400/25", "animate-pulse")
+          }
+        />
+        <div className="absolute inset-0 bg-black/60 rounded-lg hidden group-hover:flex flex-col items-start justify-between p-4">
+          <div className="flex items-center w-full">
             <div className="w-10 h-10 relative">
               <Image
                 className="rounded-full"
@@ -45,18 +44,20 @@ const PostPreview: FC<PostPreviewProps> = ({ image, userImage, userName, prompt,
                 alt={`${userName} avatar`}
               />
             </div>
-            <p className="text-white font-semibold text-left ml-2 ">{userName}</p>
+            <p className="text-white font-semibold text-left ml-2 truncate max-w-[240px]">
+              {userName}
+            </p>
           </div>
-          <button
-            onClick={handleDownload}
-            className="rounded-full hover:bg-slate-400/30 p-2 transition"
-          >
-            <DownloadIcon className="text-white w-6 h-6" />
-          </button>
+          <p className="text-white text-sm truncate max-w-full">{prompt}</p>
         </div>
-        <p className="text-white text-sm truncate max-w-full">{prompt}</p>
-      </div>
-    </Link>
+      </Link>
+      <button
+        onClick={handleDownload}
+        className="absolute right-4 top-4 rounded-full hidden group-hover:block hover:bg-slate-400/30 p-2 transition"
+      >
+        <DownloadIcon className="text-white w-6 h-6" />
+      </button>
+    </div>
   );
 };
 
