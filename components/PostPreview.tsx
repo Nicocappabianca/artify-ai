@@ -33,7 +33,7 @@ const PostPreview: FC<PostPreviewProps> = ({ image, userImage, userName, prompt,
         className="rounded-lg bg-slate-400/25 animate-pulse"
         onLoad={(image) => image.currentTarget.classList.remove("bg-slate-400/25", "animate-pulse")}
       />
-      <div className="absolute inset-0 bg-black/60 rounded-lg hidden [@media(hover-hover:hover)]:group-hover-hover:flex flex-col items-start justify-between p-4">
+      <div className="absolute inset-0 bg-black/60 rounded-lg hidden [@media(hover:hover)]:group-hover:flex flex-col items-start justify-between p-4">
         <div className="flex justify-between items-center w-full">
           <div className="flex items-center">
             <div className="w-10 h-10 relative">
@@ -49,7 +49,7 @@ const PostPreview: FC<PostPreviewProps> = ({ image, userImage, userName, prompt,
           </div>
           <button
             onClick={handleDownload}
-            className="rounded-full hover-hover:bg-slate-400/30 p-2 transition"
+            className="rounded-full hover:bg-slate-400/30 p-2 transition"
           >
             <DownloadIcon className="text-white w-6 h-6" />
           </button>

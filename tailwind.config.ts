@@ -7,12 +7,11 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      screens: {
-        "hover-hover": { raw: "(hover: hover)" },
-      },
-    },
+    extend: {},
   },
   plugins: [],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
 };
 export default config;

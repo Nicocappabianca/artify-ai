@@ -38,7 +38,7 @@ export default async function MyGalleryPage() {
             Let's fill your gallery with unique creations!
           </p>
           <Link
-            className="bg-slate-900 rounded-md text-slate-400 border border-slate-400 py-2 px-2.5 hover-hover:bg-slate-400 hover-hover:text-slate-900 hover-hover:border hover-hover:border-slate-900 transition"
+            className="bg-slate-900 rounded-md text-slate-400 border border-slate-400 py-2 px-2.5 hover:bg-slate-400 hover:text-slate-900 hover:border hover:border-slate-900 transition"
             href={NavLinks.GENERATE}
           >
             ✨ Create Your Masterpiece ✨
